@@ -1,37 +1,62 @@
 var intervalId;
-var trivia = $("#trivia");
-var startBtn = $("#startBtn");
+var trivia = $("#trivia"),
+  startBtn = $("#startBtn"),
+  submitBtn = $("#submitBtn"),
+  display = $("#display"),
+  results = $("#results");
 var solution = ["Scripting", "Programming"];
 var questions = ["choice0", "choice1"];
-var goodAns = 0;
-var wrongAns = 0;
-var unAns = 0;
+var goodAns = 0,
+  wrongAns = 0,
+  unAns = 0;
+
 
 var gamePlay = {
 
-  time: 5,
+  time: 120,
 
+  //Hides and shows all the necessary div's to left only the start button on screen.
   reset: function() {
     trivia.hide();
+    display.hide();
+    results.hide();
     startBtn.show();
   },
 
+  //Hides and shows all the necessary div's to show the questions..
   play: function() {
-    trivia.show();
     startBtn.hide();
+    trivia.show();
+    display.show();
+    display.text("02:00");
+    gamePlay.timer();
   },
 
+  //Executes the countDown every 1 second.
+  timer: function() {
+    intervalId = setInterval(gamePlay.countDown, 1000);
+  },
+
+  //Has de control of the countDown.
   countDown: function() {
     gamePlay.time -= 1;
     console.log(gamePlay.time);
-    gamePlay.timeOut();
+    if (gamePlay.time === 0) {
+      clearInterval(intervalId);
+      submitBtn.hide();
+      gamePlay.evaluator();
+    }
+
+    var converted = gamePlay.timeConverter(gamePlay.time);
+    $("#display").text(converted);
   },
 
-  timeOut: function() {
-    if (gamePlay.time === 0) {
-      clearInterval(intervalId); //stops countDown
-      gamePlay.evaluator();
-    };
+  //Manually stops the countdow in case user press the submit button.
+  submit: function() {
+    clearInterval(intervalId);
+      display.text("00:00");
+    submitBtn.hide();
+    gamePlay.evaluator();
   },
 
   evaluator: function() {
@@ -43,59 +68,57 @@ var gamePlay = {
       var userAnswer;
 
       for (j = 0; j < radios.length; j++) {
-        if (radios[i].checked) {
+        if (radios[j].checked) {
           checked = true;
-          userAnswer = radios[i].value;
-          console.log(checked + " " + userAnswer)
+          userAnswer = radios[j].value;
         }
       }
 
       if (userAnswer === solution[i]) {
         goodAns++;
-      } else {
+      } else if (!checked) {
+        unAns++;
+      } else if (userAnswer != solution[i]) {
         wrongAns++;
       }
-
-
-      console.log(radios, checked, userAnswer);
-
-      console.log("run" + i);
-
-
     }
-    // var radios = document.getElementsByName("choice");
-    // var i = 0, len = radios.length;
-    // var checked = false;
-    // var userAnswer;
-    //
-    // for( ; i < len; i++ ) {
-    //    if(radios[i].checked) {
-    //      checked = true;
-    //      userAnswer = radios[i].value;
-    //    }
-    // }
-    // // if user click submit button without selecting any option, alert box should be say "please select choice answer".
-    // // if(!checked) {
-    // //   unAns ++;
-    // //   return;
-    // // }
-    // // Correct answer
-    // if(userAnswer === "Scripting") {
-    //    goodAns ++;
-    // }
-    // // incorrect answer
-    // else {
-    //    wrongAns ++;
-    // }
+    console.log("Right: " + goodAns + " Wrong: " + wrongAns + " Unaswered: " + unAns);
+    gamePlay.results();
+  },
 
-    console.log(goodAns + " " + wrongAns + " " + unAns);
+  results: function() {
+    trivia.hide();
+    results.show();
+    $("#goodAnswered").text("Correct: " + goodAns);
+    $("#wrongAnswered").text("Wrong: " + wrongAns);
+    $("#unAnswered").text("Unaswered: " + unAns);
+  },
 
+  timeConverter: function(t) {
+
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+      minutes = "00";
+    } else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
   },
 }
 
 gamePlay.reset();
 
-$("#startBtn").on('click', function() {
+startBtn.on('click', function() {
   gamePlay.play();
-  intervalId = setInterval(gamePlay.countDown, 1000);
+});
+
+submitBtn.on('click', function() {
+  gamePlay.submit();
 });
