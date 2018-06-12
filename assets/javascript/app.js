@@ -28,7 +28,7 @@ var gamePlay = {
     startBtn.hide();
     trivia.show();
     display.show();
-    display.text("02:00");
+    display.text(" Time Remaining: 02:00");
     gamePlay.timer();
   },
 
@@ -46,28 +46,29 @@ var gamePlay = {
       submitBtn.hide();
       gamePlay.evaluator();
     }
-
+    //Call the 'translator' of time.
     var converted = gamePlay.timeConverter(gamePlay.time);
-    $("#display").text(converted);
+    $("#display").text("Time Reaining: " + converted);
   },
 
   //Manually stops the countdow in case user press the submit button.
   submit: function() {
     clearInterval(intervalId);
-      display.text("00:00");
+    display.hide();
     submitBtn.hide();
     gamePlay.evaluator();
   },
 
+  //Evaluate the answers from the user.
   evaluator: function() {
 
-    for (i = 0; i < solution.length; i++) {
+    for (i = 0; i < solution.length; i++) { //This loop runs for each of the questions
 
       var radios = document.getElementsByName(questions[i]);
       var checked = false;
       var userAnswer;
 
-      for (j = 0; j < radios.length; j++) {
+      for (j = 0; j < radios.length; j++) { //This loop verify the answer checked by user.
         if (radios[j].checked) {
           checked = true;
           userAnswer = radios[j].value;
@@ -78,7 +79,7 @@ var gamePlay = {
         goodAns++;
       } else if (!checked) {
         unAns++;
-      } else if (userAnswer != solution[i]) {
+      } else {
         wrongAns++;
       }
     }
@@ -86,6 +87,7 @@ var gamePlay = {
     gamePlay.results();
   },
 
+  //Hides and shows the results obtained by user.
   results: function() {
     trivia.hide();
     results.show();
@@ -94,6 +96,7 @@ var gamePlay = {
     $("#unAnswered").text("Unaswered: " + unAns);
   },
 
+  //Translates the time from integers to minutes and seconds.
   timeConverter: function(t) {
 
     var minutes = Math.floor(t / 60);
