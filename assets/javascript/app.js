@@ -13,7 +13,7 @@ var goodAns = 0,
 
 var gamePlay = {
 
-  time: 120,
+  time: 60,
 
   //Hides and shows all the necessary div's to left only the start button on screen.
   reset: function() {
@@ -28,7 +28,7 @@ var gamePlay = {
     startBtn.hide();
     trivia.show();
     display.show();
-    display.text(" Time Remaining: 02:00");
+    display.text(" Time Remaining: 01:00");
     gamePlay.timer();
   },
 
