@@ -24,11 +24,14 @@
         </div>
         <div class="col-xl-6">
           <div class="container text-center">
-            <h1 class="display-4" id="title"> <a id="space">Space</a> TRIVIA!</h1>
+            <a href="#" id="home">
+              <div id="space">Space </div>
+              <div id="title"> TRIVIA!</div>
+            </a>
             <button type="button" class="btn btn-secondary mt-3" id="startBtn">Press To Start</button>
             <p id="display"></p>
-            <div class="card mt-3" id="results">
-              <h3>Your Results:</h3>
+            <div class="card mt-3 rounded" id="results">
+              <h3><strong>Your Results:</strong></h3>
               <div id="goodAnswered"></div>
               <div id="wrongAnswered"></div>
               <div id="unAnswered"></div>
@@ -43,23 +46,23 @@
           <div class="lead mt-3" id="trivia">
             <div><strong>1. What is the closest planet to the Sun?</strong></div>
             <form>
-              <input type="radio" name="choice0" value="Earth" id="q"> Earth</input>
-              <input type="radio" name="choice0" value="Mercury" id="q"> Mercury</input>
-              <input type="radio" name="choice0" value="Mars" id="q"> Mars</input>
-              <input type="radio" name="choice0" value="Neptune" id="q"> Neptune</input>
+              <input id="q" type="radio" name="choice0" value="Earth"> Earth
+              <input id="q" type="radio" name="choice0" value="Mercury"> Mercury
+              <input id="q" type="radio" name="choice0" value="Mars"> Mars
+              <input id="q" type="radio" name="choice0" value="Neptune"> Neptune
             </form>
             <br>
             <div><strong>2. What is the name of the 2nd biggest planet in our solar system?</strong></div>
             <form>
-              <input type="radio" name="choice1" value="Jupiter" id="q"> Jupiter</input>
-              <input type="radio" name="choice1" value="Mars" id="q"> Mars</input>
-              <input type="radio" name="choice1" value="Saturn" id="q"> Saturn</input>
-              <input type="radio" name="choice1" value="Neptune" id="q"> Neptune</input>
+              <input id="q" type="radio" name="choice1" value="Jupiter"> Jupiter
+              <input id="q" type="radio" name="choice1" value="Mars"> Mars
+              <input id="q" type="radio" name="choice1" value="Saturn"> Saturn
+              <input id="q" type="radio" name="choice1" value="Neptune"> Neptune
             </form>
             <br>
             <div><strong>3. What is the name of the hottest planet in our solar system?</strong></div>
             <form>
-              <input id="q" type="radio" name="choice2" value="Jupiter" id="q"> Jupiter
+              <input id="q" type="radio" name="choice2" value="Jupiter"> Jupiter
               <input id="q" type="radio" name="choice2" value="Earth"> Earth
               <input id="q" type="radio" name="choice2" value="Uranus"> Uranus
               <input id="q" type="radio" name="choice2" value="Venus"> Venus
@@ -80,13 +83,12 @@
               <input id="q" type="radio" name="choice4" value="China"> China
               <input id="q" type="radio" name="choice4" value="Japan"> Japan
             </form>
-            <button type="button" class="btn btn-secondary mt-3" id="submitBtn">Submit Answers</button>
+            <div class="text-center mt-3">
+              <button type="button" class="btn btn-secondary" id="submitBtn">Submit Answers</button>
+            </div>
           </div>
-
         </div>
       </div>
-
-
     </div>
   </div>
 

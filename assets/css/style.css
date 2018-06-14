@@ -1,25 +1,52 @@
 .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
   display: flex;
   align-items: center;
 }
 
-#title{
-  font-family: 'Orbitron', sans-serif;
+#home {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black;
 }
-#space{
+
+#title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 50px;
+  display: inline-block;
+}
+
+#space {
   font-family: 'Permanent Marker', cursive;
   font-size: 75px;
-};
+  display: inline-block;
+}
 
-#trivia{
+#trivia {
   font-family: 'Bree', sans-serif;
   text-align: left;
 }
 
-#q{
+#q {
   margin-left: 50px;
   margin-right: 10px;
-};
+}
+
+#submitBtn {
+  margin: 20px;
+}
+
+#results {
+  padding: 15px;
+  font-family: 'Bree', sans-serif;
+}
+
+#display{
+  font-family: 'Bree', sans-serif;
+  font-size: 20px;
+  padding: 20px;
+}

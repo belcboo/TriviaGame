@@ -44,6 +44,7 @@ var gamePlay = {
     if (gamePlay.time === 0) {
       clearInterval(intervalId);
       submitBtn.hide();
+      display.hide();
       gamePlay.evaluator();
     }
     //Call the 'translator' of time.
@@ -116,7 +117,7 @@ var gamePlay = {
   },
 }
 
-// gamePlay.reset();
+gamePlay.reset();
 
 startBtn.on('click', function() {
   gamePlay.play();
