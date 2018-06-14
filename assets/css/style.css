@@ -5,3 +5,21 @@
   display: flex;
   align-items: center;
 }
+
+#title{
+  font-family: 'Orbitron', sans-serif;
+}
+#space{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 75px;
+};
+
+#trivia{
+  font-family: 'Bree', sans-serif;
+  text-align: left;
+}
+
+#q{
+  margin-left: 50px;
+  margin-right: 10px;
+};

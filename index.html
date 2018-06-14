@@ -7,50 +7,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-  <title>Trivia Game</title>
+  <title>Space Trivia</title>
 
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Cinzel|Poiret+One|Bangers|Courgette|Orbitron|Permanent+Marker" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body background="assets/images/bg.png">
 
   <div class="container">
-    <div class="row">
-      <div class="col-xl-12 jumbotron jumbotron-fluid mt-5 vertical-center">
-        <div class="container text-center">
-          <h1 class="display-4">Totally Trivial Trivia!</h1>
-          <button type="button" class="btn btn-secondary mt-3" id="startBtn">Press To Start</button>
-          <p id="display"></p>
-          <div class="mt-3" id="results">
-            <h3>Your Results:</h3>
-            <p id="goodAnswered"></p>
-            <p id="wrongAnswered"></p>
-            <p id="unAnswered"></p>
-          </div>
-          <div class="lead mt-3" id="trivia">
-            <p><strong>1. JavaScript is ______ Language.</strong></p><br>
-            <form>
-              <input type="radio" name="choice0"  value="Scripting"> Scripting
-              <input type="radio" name="choice0"  value="Programming"> Programming
-              <input type="radio" name="choice0"  value="Application"> Application
-              <input type="radio" name="choice0"  value="None of These"> None of These
-            </form>
-            <br/>
-            <p><strong>1. Pregunta 2.</strong></p><br>
-            <form>
-              <input type="radio" name="choice1" value="Scripting"> Scripting
-              <input type="radio" name="choice1" value="Programming"> Programming
-              <input type="radio" name="choice1" value="Application"> Application
-              <input type="radio" name="choice1" value="None of These"> None of These
-            </form>
-            <button type="button" class="btn btn-secondary mt-3" id="submitBtn">Submit Answers</button>
+    <div class="jumbotron jumbotron-fluid mt-5 rounded">
+      <div class="row">
+        <div class="col-xl-3">
+        </div>
+        <div class="col-xl-6">
+          <div class="container text-center">
+            <h1 class="display-4" id="title"> <a id="space">Space</a> TRIVIA!</h1>
+            <button type="button" class="btn btn-secondary mt-3" id="startBtn">Press To Start</button>
+            <p id="display"></p>
+            <div class="card mt-3" id="results">
+              <h3>Your Results:</h3>
+              <div id="goodAnswered"></div>
+              <div id="wrongAnswered"></div>
+              <div id="unAnswered"></div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xl-2">
+        </div>
+        <div class="col-xl-8">
+          <div class="lead mt-3" id="trivia">
+            <div><strong>1. What is the closest planet to the Sun?</strong></div>
+            <form>
+              <input type="radio" name="choice0" value="Earth" id="q"> Earth</input>
+              <input type="radio" name="choice0" value="Mercury" id="q"> Mercury</input>
+              <input type="radio" name="choice0" value="Mars" id="q"> Mars</input>
+              <input type="radio" name="choice0" value="Neptune" id="q"> Neptune</input>
+            </form>
+            <br>
+            <div><strong>2. What is the name of the 2nd biggest planet in our solar system?</strong></div>
+            <form>
+              <input type="radio" name="choice1" value="Jupiter" id="q"> Jupiter</input>
+              <input type="radio" name="choice1" value="Mars" id="q"> Mars</input>
+              <input type="radio" name="choice1" value="Saturn" id="q"> Saturn</input>
+              <input type="radio" name="choice1" value="Neptune" id="q"> Neptune</input>
+            </form>
+            <br>
+            <div><strong>3. What is the name of the hottest planet in our solar system?</strong></div>
+            <form>
+              <input id="q" type="radio" name="choice2" value="Jupiter" id="q"> Jupiter
+              <input id="q" type="radio" name="choice2" value="Earth"> Earth
+              <input id="q" type="radio" name="choice2" value="Uranus"> Uranus
+              <input id="q" type="radio" name="choice2" value="Venus"> Venus
+            </form>
+            <br>
+            <div><strong>4. What is the name of the force holding us to the Earth?</strong></div>
+            <form>
+              <input id="q" type="radio" name="choice3" value="Aceleration"> Aceleration
+              <input id="q" type="radio" name="choice3" value="Gravity"> Gravity
+              <input id="q" type="radio" name="choice3" value="Mass"> Mass
+              <input id="q" type="radio" name="choice3" value="Force"> Force
+            </form>
+            <br>
+            <div><strong>5. Which was the first country in the space?</strong></div>
+            <form>
+              <input id="q" type="radio" name="choice4" value="Russia"> Russia
+              <input id="q" type="radio" name="choice4" value="USA"> USA
+              <input id="q" type="radio" name="choice4" value="China"> China
+              <input id="q" type="radio" name="choice4" value="Japan"> Japan
+            </form>
+            <button type="button" class="btn btn-secondary mt-3" id="submitBtn">Submit Answers</button>
+          </div>
+
+        </div>
+      </div>
+
+
     </div>
   </div>
+
 
   <script type="text/javascript" src="assets/javascript/app.js"></script>
 

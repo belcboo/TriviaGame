@@ -4,8 +4,8 @@ var trivia = $("#trivia"),
   submitBtn = $("#submitBtn"),
   display = $("#display"),
   results = $("#results");
-var solution = ["Scripting", "Programming"];
-var questions = ["choice0", "choice1"];
+var solution = ["Mercury", "Saturn", "Venus", "Gravity", "Russia"];
+var questions = ["choice0", "choice1", "choice2", "choice3", "choice4"];
 var goodAns = 0,
   wrongAns = 0,
   unAns = 0;
@@ -116,7 +116,7 @@ var gamePlay = {
   },
 }
 
-gamePlay.reset();
+// gamePlay.reset();
 
 startBtn.on('click', function() {
   gamePlay.play();
